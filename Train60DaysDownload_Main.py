@@ -7,7 +7,7 @@ from PyQt5.QtCore import QThread, pyqtSignal
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
 from datetime import datetime
-from os import listdir, remove
+from os import listdir, remove, path, mkdir
 from os.path import isfile, isdir, join
 from PyQt5.QtCore import QProcess
 
@@ -15,6 +15,11 @@ from Train60DaysDownload_UI import Ui_MainWindow
 import TrainDataXMLDownloader
 
 folderpath = 'Downloads' #下載檔案的位置
+
+if not path.isdir(folderpath):
+    mkdir(folderpath)
+else:
+    pass
 
 dir_files = listdir(folderpath)
 for f in dir_files:      
